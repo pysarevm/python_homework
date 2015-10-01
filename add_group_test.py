@@ -10,20 +10,21 @@ def is_alert_present(wd):
     except:
         return False
 
+
 class Group:
-        def __init__(self, name, header, footer):
-            self.name = name
-            self.header = header
-            self.footer = footer
+    def __init__(self, name, header, footer):
+        self.name = name
+        self.header = header
+        self.footer = footer
+
 
 class add_group_test(unittest.TestCase):
-
     def setUp(self):
         self.wd = WebDriver()
         self.wd.implicitly_wait(60)
 
     def test_add_group(self):
-        for group_parameters in (Group("Group1", "Group1_header", "Group1_footer"), Group("", "", "")):
+        for group_parameters in [Group("Group1", "Group1_header", "Group1_footer"), Group("", "", "")]:
             wd = self.wd
             self.open_home_page(wd)
             self.login(wd, username="admin", password="secret")
