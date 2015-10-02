@@ -38,12 +38,18 @@
       <file leaf-file-name="add_contact_test.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/add_contact_test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6079078">
-              <caret line="39" column="24" selection-start-line="39" selection-start-column="24" selection-end-line="39" selection-end-column="24" />
+            <state vertical-scroll-proportion="-0.2553542">
+              <caret line="47" column="40" selection-start-line="47" selection-start-column="40" selection-end-line="47" selection-end-column="40" />
               <folding>
                 <element signature="e#24#82#0" expanded="true" />
-                <element signature="e#1397#1454#0" expanded="false" />
-                <element signature="e#1701#1746#0" expanded="false" />
+                <element signature="e#1865#1922#0" expanded="false" />
+                <element signature="e#2475#2520#0" expanded="false" />
+                <element signature="e#4901#5156#0" expanded="false" />
+                <element signature="e#5227#5391#0" expanded="false" />
+                <element signature="e#5446#5500#0" expanded="false" />
+                <element signature="e#5555#5932#0" expanded="false" />
+                <element signature="e#5976#6015#0" expanded="false" />
+                <element signature="e#6049#6063#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -158,7 +164,7 @@
     </option>
   </component>
   <component name="RunManager" selected="Python tests.Unittests in add_contact_test">
-    <configuration default="false" name="Unittests in python_homework" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="Unittests in add_group_test" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs />
@@ -168,11 +174,11 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="python_homework" />
-      <option name="SCRIPT_NAME" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/add_group_test.py" />
       <option name="CLASS_NAME" value="" />
       <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="$PROJECT_DIR$" />
-      <option name="TEST_TYPE" value="TEST_FOLDER" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
       <option name="PATTERN" value="" />
       <option name="USE_PATTERN" value="false" />
       <option name="PUREUNITTEST" value="true" />
@@ -197,28 +203,6 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="Unittests in add_group_test" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="python_homework" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/add_group_test.py" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <option name="PUREUNITTEST" value="true" />
-      <option name="PARAMS" value="" />
-      <option name="USE_PARAM" value="false" />
-      <method />
-    </configuration>
     <configuration default="false" name="test2" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -236,7 +220,7 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="Unittests in add_contact_test" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="Unittests in python_homework" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs />
@@ -246,11 +230,11 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="python_homework" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/add_contact_test.py" />
+      <option name="SCRIPT_NAME" value="" />
       <option name="CLASS_NAME" value="" />
       <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="FOLDER_NAME" value="$PROJECT_DIR$" />
+      <option name="TEST_TYPE" value="TEST_FOLDER" />
       <option name="PATTERN" value="" />
       <option name="USE_PATTERN" value="false" />
       <option name="PUREUNITTEST" value="true" />
@@ -380,20 +364,41 @@
       <option name="USE_KEYWORD" value="false" />
       <method />
     </configuration>
+    <configuration default="false" name="Unittests in add_contact_test" type="tests" factoryName="Unittests" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="python_homework" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/add_contact_test.py" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PUREUNITTEST" value="true" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python tests.Unittests in python_homework" />
-      <item index="1" class="java.lang.String" itemvalue="Python.syspath" />
-      <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests in add_group_test" />
+      <item index="0" class="java.lang.String" itemvalue="Python tests.Unittests in add_contact_test" />
+      <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests in add_group_test" />
+      <item index="2" class="java.lang.String" itemvalue="Python.syspath" />
       <item index="3" class="java.lang.String" itemvalue="Python.test2" />
-      <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests in add_contact_test" />
+      <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests in python_homework" />
     </list>
     <recent_temporary>
-      <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python tests.Unittests in add_contact_test" />
-        <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests in add_group_test" />
-        <item index="2" class="java.lang.String" itemvalue="Python.test2" />
-        <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests in python_homework" />
-        <item index="4" class="java.lang.String" itemvalue="Python.syspath" />
+      <list size="4">
+        <item index="0" class="java.lang.String" itemvalue="Python tests.Unittests in add_group_test" />
+        <item index="1" class="java.lang.String" itemvalue="Python.test2" />
+        <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests in python_homework" />
+        <item index="3" class="java.lang.String" itemvalue="Python.syspath" />
       </list>
     </recent_temporary>
   </component>
@@ -602,12 +607,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/add_contact_test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6079078">
-          <caret line="39" column="24" selection-start-line="39" selection-start-column="24" selection-end-line="39" selection-end-column="24" />
+        <state vertical-scroll-proportion="-0.2553542">
+          <caret line="47" column="40" selection-start-line="47" selection-start-column="40" selection-end-line="47" selection-end-column="40" />
           <folding>
             <element signature="e#24#82#0" expanded="true" />
-            <element signature="e#1397#1454#0" expanded="false" />
-            <element signature="e#1701#1746#0" expanded="false" />
+            <element signature="e#1865#1922#0" expanded="false" />
+            <element signature="e#2475#2520#0" expanded="false" />
+            <element signature="e#4901#5156#0" expanded="false" />
+            <element signature="e#5227#5391#0" expanded="false" />
+            <element signature="e#5446#5500#0" expanded="false" />
+            <element signature="e#5555#5932#0" expanded="false" />
+            <element signature="e#5976#6015#0" expanded="false" />
+            <element signature="e#6049#6063#0" expanded="false" />
           </folding>
         </state>
       </provider>
