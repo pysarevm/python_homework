@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e2b51dc2-3c9e-4549-8cf4-3eb10b8d8d61" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/add_group_test.py" afterPath="$PROJECT_DIR$/add_group_test.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/python_homework.iml" afterPath="$PROJECT_DIR$/.idea/python_homework.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/add_contact_test.py" afterPath="$PROJECT_DIR$/add_contact_test.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="python_homework.iws" />
@@ -32,7 +28,7 @@
         <entry file="file://$PROJECT_DIR$/add_group_test.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="60" column="4" selection-start-line="60" selection-start-column="4" selection-end-line="67" selection-end-column="73" />
+              <caret line="29" column="63" selection-start-line="29" selection-start-column="63" selection-end-line="29" selection-end-column="63" />
               <folding>
                 <element signature="e#24#82#0" expanded="true" />
               </folding>
@@ -43,8 +39,8 @@
       <file leaf-file-name="add_contact_test.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/add_contact_test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2735043">
-              <caret line="47" column="80" selection-start-line="47" selection-start-column="80" selection-end-line="47" selection-end-column="80" />
+            <state vertical-scroll-proportion="0.95156693">
+              <caret line="62" column="97" selection-start-line="62" selection-start-column="97" selection-end-line="62" selection-end-column="97" />
               <folding>
                 <element signature="e#24#82#0" expanded="true" />
               </folding>
@@ -450,7 +446,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="3" />
+      <option name="time" value="4" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -596,7 +592,7 @@
     <entry file="file://$PROJECT_DIR$/add_group_test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="60" column="4" selection-start-line="60" selection-start-column="4" selection-end-line="67" selection-end-column="73" />
+          <caret line="29" column="63" selection-start-line="29" selection-start-column="63" selection-end-line="29" selection-end-column="63" />
           <folding>
             <element signature="e#24#82#0" expanded="true" />
           </folding>
@@ -605,8 +601,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/add_contact_test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2735043">
-          <caret line="47" column="80" selection-start-line="47" selection-start-column="80" selection-end-line="47" selection-end-column="80" />
+        <state vertical-scroll-proportion="0.95156693">
+          <caret line="62" column="97" selection-start-line="62" selection-start-column="97" selection-end-line="62" selection-end-column="97" />
           <folding>
             <element signature="e#24#82#0" expanded="true" />
           </folding>

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from selenium.webdriver.firefox.webdriver import WebDriver
-import unittest
-
+import unittest, random
+# random.randomrange(1,14,1) from 1 to 14 with step 1
 
 def is_alert_present(wd):
     try:
@@ -45,30 +45,31 @@ class add_contact_test(unittest.TestCase):
         self.fill_the_field(wd, field_name="email2", field_content="")
         self.fill_the_field(wd, field_name="email3", field_content="")
         self.fill_the_field(wd, field_name="homepage", field_content="www.google.com")
-        if not wd.find_element_by_xpath("//div[@id='content']/form/select[1]//option[1]").is_selected():
-            wd.find_element_by_xpath("//div[@id='content']/form/select[1]//option[1]").click()
-        if not wd.find_element_by_xpath("//div[@id='content']/form/select[1]//option[14]").is_selected():
-            wd.find_element_by_xpath("//div[@id='content']/form/select[1]//option[14]").click()
-        if not wd.find_element_by_xpath("//div[@id='content']/form/select[2]//option[6]").is_selected():
-            wd.find_element_by_xpath("//div[@id='content']/form/select[2]//option[6]").click()
+        """if not wd.find_element_by_xpath("//div[@id='content']/form/select[1]//option[1]").is_selected():
+        wd.find_element_by_xpath("//div[@id='content']/form/select[1]//option[1]").click()"""
+        self.select_from_dropbox(wd, box_number=1, choice_number=14)
+        self.select_from_dropbox(wd, box_number=2, choice_number=6)
+        """if not wd.find_element_by_xpath("//div[@id='content']/form/select[2]//option[6]").is_selected():
+            wd.find_element_by_xpath("//div[@id='content']/form/select[2]//option[6]").click()"""
         self.fill_the_field(wd, field_name="byear", field_content="1982")
-        """wd.find_element_by_name("byear").click()
-        wd.find_element_by_name("byear").clear()
-        wd.find_element_by_name("byear").send_keys("1982")"""
-        if not wd.find_element_by_xpath("//div[@id='content']/form/select[3]//option[1]").is_selected():
-            wd.find_element_by_xpath("//div[@id='content']/form/select[3]//option[1]").click()
-        if not wd.find_element_by_xpath("//div[@id='content']/form/select[4]//option[1]").is_selected():
-            wd.find_element_by_xpath("//div[@id='content']/form/select[4]//option[1]").click()
+        self.select_from_dropbox(wd, box_number=3, choice_number=1)
+        """if not wd.find_element_by_xpath("//div[@id='content']/form/select[3]//option[1]").is_selected():
+            wd.find_element_by_xpath("//div[@id='content']/form/select[3]//option[1]").click()"""
+        self.select_from_dropbox(wd, box_number=4, choice_number=1)
+        """if not wd.find_element_by_xpath("//div[@id='content']/form/select[4]//option[1]").is_selected():
+            wd.find_element_by_xpath("//div[@id='content']/form/select[4]//option[1]").click()"""
         self.fill_the_field(wd, field_name="ayear", field_content="")
-        """wd.find_element_by_name("ayear").click()
-        wd.find_element_by_name("ayear").send_keys("\\9")"""
-        if not wd.find_element_by_xpath("//div[@id='content']/form/select[5]//option[1]").is_selected():
-            wd.find_element_by_xpath("//div[@id='content']/form/select[5]//option[1]").click()
+        """if not wd.find_element_by_xpath("//div[@id='content']/form/select[5]//option[1]").is_selected():
+            wd.find_element_by_xpath("//div[@id='content']/form/select[5]//option[1]").click()"""
         self.fill_the_field(wd, field_name="address2", field_content="some address")
         self.fill_the_field(wd, field_name="phone2", field_content="0987654321")
         self.fill_the_field(wd, field_name="notes", field_content="")
         # Submit contact
         wd.find_element_by_xpath("//div[@id='content']/form/input[21]").click()
+
+    def select_from_dropbox(self, wd, box_number, choice_number):
+        if not wd.find_element_by_xpath("//div[@id='content']/form/select[%d]//option[%d]" % (box_number, choice_number)).is_selected():
+            wd.find_element_by_xpath("//div[@id='content']/form/select[%d]//option[%d]" % (box_number, choice_number)).click()
 
     def fill_the_field(self, wd, field_name, field_content):
         wd.find_element_by_name(field_name).click()
