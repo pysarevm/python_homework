@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from selenium.webdriver.firefox.webdriver import WebDriver
 import unittest
+from group import Group
 
 
 def is_alert_present(wd):
@@ -11,11 +12,7 @@ def is_alert_present(wd):
         return False
 
 
-class Group:
-    def __init__(self, name, header, footer):
-        self.name = name
-        self.header = header
-        self.footer = footer
+
 
 
 class add_group_test(unittest.TestCase):
@@ -25,40 +22,44 @@ class add_group_test(unittest.TestCase):
 
     def test_add_group(self):
         for group_parameters in [Group("Group1", "Group1_header", "Group1_footer"), Group("", "", "")]:
-            wd = self.wd
-            self.open_home_page(wd)
-            self.login(wd, username="admin", password="secret")
-            self.open_group_page(wd)
-            self.group_creation(wd, group_parameters)
-            self.return_to_groups_page(wd)
-            self.logout(wd)
+            self.login(username="admin", password="secret")
+            self.group_creation(group_parameters)
+            self.logout()
 
-    def logout(self, wd):
+    def logout(self):
+        wd = self.wd
         wd.find_element_by_link_text("Вийти").click()
 
-    def return_to_groups_page(self, wd):
+    def return_to_groups_page(self):
+        wd = self.wd
         wd.find_element_by_link_text("group page").click()
 
-    def group_creation(self, wd, Group):
+    def group_creation(self, group):
+        wd = self.wd
+        self.open_group_page()
         # init group creation
         wd.find_element_by_name("new").click()
         # fill group form
         wd.find_element_by_name("group_name").click()
         wd.find_element_by_name("group_name").clear()
-        wd.find_element_by_name("group_name").send_keys(Group.name)
+        wd.find_element_by_name("group_name").send_keys(group.name)
         wd.find_element_by_name("group_header").click()
         wd.find_element_by_name("group_header").clear()
-        wd.find_element_by_name("group_header").send_keys(Group.header)
+        wd.find_element_by_name("group_header").send_keys(group.header)
         wd.find_element_by_name("group_footer").click()
         wd.find_element_by_name("group_footer").clear()
-        wd.find_element_by_name("group_footer").send_keys(Group.footer)
+        wd.find_element_by_name("group_footer").send_keys(group.footer)
         # submit group creation
         wd.find_element_by_name("submit").click()
+        self.return_to_groups_page()
 
-    def open_group_page(self, wd):
+    def open_group_page(self):
+        wd = self.wd
         wd.find_element_by_link_text("Групи").click()
 
-    def login(self, wd, username, password):
+    def login(self, username, password):
+        wd = self.wd
+        self.open_home_page()
         wd.find_element_by_name("user").click()
         wd.find_element_by_name("user").clear()
         wd.find_element_by_name("user").send_keys(username)
@@ -67,7 +68,8 @@ class add_group_test(unittest.TestCase):
         wd.find_element_by_name("pass").send_keys(password)
         wd.find_element_by_css_selector("input[type=\"submit\"]").click()
 
-    def open_home_page(self, wd):
+    def open_home_page(self):
+        wd = self.wd
         wd.get("http://localhost/addressbook/")
 
     def tearDown(self):
