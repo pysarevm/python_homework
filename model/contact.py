@@ -1,5 +1,5 @@
-__author__ = 'Pysarev'
 import random
+
 
 class Contact:
     def __init__(self, firstname, middlename, lastname, nickname, title, company, address, home, mobile, work, fax,
