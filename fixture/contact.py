@@ -53,3 +53,14 @@ class ContactHelper:
     def navigate_add_contact_page(self):
         wd = self.app.wd
         wd.find_element_by_link_text("Додати контакт").click()
+
+    def navigate_main_page(self):
+        wd = self.app.wd
+        wd.find_element_by_link_text("Головна").click()
+
+    def delete_first_contact(self):
+        wd = self.app.wd
+        wd.find_element_by_name("selected[]").click()
+        wd.find_element_by_xpath("//div[@id='content']/form[2]/div[2]/input").click()
+        wd.switch_to_alert().accept()
+        self.navigate_main_page()
