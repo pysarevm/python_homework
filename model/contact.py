@@ -30,12 +30,8 @@ class Contact:
         self.phone2=phone2
         self.notes=notes
 
-    def random_choise(self, dropbox_number):
-        if dropbox_number == 1:
-            return random.randint(1, 33)
-        elif dropbox_number == 2:
-            return random.randint(1, 13)
-        elif dropbox_number == 3:
-            return random.randint(1, 33)
-        elif dropbox_number == 4:
-            return random.randint(1, 13)
+    def get_random_date(self):
+        return random.randint(1, 33)
+
+    def get_random_month(self):
+        return random.randint(1, 13)
