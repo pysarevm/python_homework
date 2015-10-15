@@ -7,7 +7,7 @@ class ContactHelper:
     def __init__(self, app):
         self.app = app
 
-    def add_information(self, contact):
+    def create(self, contact):
         wd = self.app.wd
         # init contact creation
         self.navigate_add_contact_page()
@@ -116,3 +116,8 @@ class ContactHelper:
         self.update_the_field(field_name="notes", field_content=contact.notes)
         # Update contact
         wd.find_element_by_name("update").click()
+
+    def count(self):
+        wd = self.app.wd
+        self.navigate_main_page()
+        return len(wd.find_elements_by_name("selected[]"))
