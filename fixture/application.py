@@ -7,7 +7,6 @@ __author__ = 'Pysarev'
 class Application:
     def __init__(self):
         self.wd = WebDriver()
-        self.wd.implicitly_wait(5)
         initializer = HelperInitializer(self)
         initializer.initialize_helper()
 
