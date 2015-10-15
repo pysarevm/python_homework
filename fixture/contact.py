@@ -69,15 +69,21 @@ class ContactHelper:
 
     def navigate_add_contact_page(self):
         wd = self.app.wd
-        wd.find_element_by_link_text("Додати контакт").click()
+        if not (wd.current_url.endswith("/edit.php") and len(wd.find_elements_by_name("middlename")) > 0):
+            self.navigate_main_page()
+            wd.find_element_by_link_text("Додати контакт").click()
 
     def navigate_edit_contact_page(self):
         wd = self.app.wd
-        wd.find_element_by_css_selector("img[alt=\"Редагувати\"]").click()
+        if not (len(wd.find_elements_by_name("update")) > 0 and len(wd.find_elements_by_name("middlename")) > 0):
+            self.navigate_main_page()
+            wd.find_element_by_css_selector("img[alt=\"Редагувати\"]").click()
 
     def navigate_main_page(self):
         wd = self.app.wd
-        wd.find_element_by_link_text("Головна").click()
+        if not (len(wd.find_elements_by_name("searchstring"))>0 and wd.current_url.endswith("/addressbook/") > 0):
+            wd.get("http://localhost/addressbook/")
+            #wd.find_element_by_link_text("Головна").click()
 
     def delete_first_contact(self):
         wd = self.app.wd

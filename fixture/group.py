@@ -36,6 +36,7 @@ class GroupHelper:
     def open_group_page(self):
         wd = self.app.wd
         if not (wd.current_url.endswith("/group.php") and len( wd.find_elements_by_name("new")) > 0):
+            self.navigate_main_page()
             wd.find_element_by_link_text("Групи").click()
 
     def delete_first_group(self):
@@ -62,3 +63,8 @@ class GroupHelper:
         wd = self.app.wd
         self.open_group_page()
         return len(wd.find_elements_by_name("selected[]"))
+
+    def navigate_main_page(self):
+        wd = self.app.wd
+        if not (len(wd.find_elements_by_name("searchstring"))>0 and wd.current_url.endswith("/addressbook/") > 0):
+            wd.get("http://localhost/addressbook/")
