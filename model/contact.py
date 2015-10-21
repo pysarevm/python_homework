@@ -2,9 +2,10 @@ import random
 
 
 class Contact:
-    def __init__(self, firstname="", middlename="", lastname="", nickname="", title="", company="", address="", home="", mobile="", work="", fax="",
-                 email="", email2="", email3="", homepage="", dropbox1_choise=0, dropbox2_choise=0, byear="", dropbox3_choise=0,
-                 dropbox4_choise=0, ayear="", address2="", phone2="", notes=""):
+    def __init__(self, firstname=None, middlename=None, lastname=None, nickname=None, title=None, company=None,
+                 address=None, home=None, mobile=None, work=None, fax=None, email=None, email2=None, email3=None,
+                 homepage=None, dropbox1_choise=None, dropbox2_choise=None, byear=None, dropbox3_choise=None,
+                 dropbox4_choise=None, ayear=None, address2=None, phone2=None, notes=None, id=None):
         self.firstname=firstname
         self.middlename=middlename
         self.lastname=lastname
@@ -29,9 +30,16 @@ class Contact:
         self.address2=address2
         self.phone2=phone2
         self.notes=notes
+        self.id=id
 
     def get_random_date(self):
         return random.randint(1, 33)
 
     def get_random_month(self):
         return random.randint(1, 13)
+
+    def __repr__(self):
+        return "%s:%s, %s" % (self.id, self.lastname, self.firstname)
+
+    def __eq__(self, other):
+        return (self.id is None or other.id is None or self.id == other.id) and self.lastname == other.lastname

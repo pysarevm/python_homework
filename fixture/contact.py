@@ -1,3 +1,4 @@
+from model.contact import Contact
 # -*- coding: utf-8 -*-
 import random
 __author__ = 'Pysarev'
@@ -46,9 +47,7 @@ class ContactHelper:
 
     def update_the_dropbox(self, box_number, choice_number):
         wd = self.app.wd
-        if choice_number == 0:
-            pass
-        else:
+        if choice_number:
            wd.find_element_by_xpath("//div[@id='content']/form/select[%d]//option[%d]" % (box_number, choice_number)).click()
 
     def fill_the_field(self, field_name, field_content):
@@ -60,9 +59,7 @@ class ContactHelper:
 
     def update_the_field(self, field_name, field_content):
         wd = self.app.wd
-        if field_content == "":
-            pass
-        else:
+        if not field_content:
             wd.find_element_by_name(field_name).click()
             wd.find_element_by_name(field_name).clear()
             wd.find_element_by_name(field_name).send_keys(field_content)
@@ -127,3 +124,14 @@ class ContactHelper:
         wd = self.app.wd
         self.navigate_main_page()
         return len(wd.find_elements_by_name("selected[]"))
+
+    def get_contact_list(self):
+        wd = self.app.wd
+        self.navigate_main_page()
+        contacts = []
+        for element in wd.find_elements_by_xpath("//tr[@name='entry']"):
+            firstname = element.find_elements_by_tag_name("td")[2].text
+            lastname = element.find_elements_by_tag_name("td")[1].text
+            id = element.find_element_by_name("selected[]").get_attribute("id")
+            contacts.append(Contact(firstname=firstname, lastname=lastname, id=id))
+        return contacts
