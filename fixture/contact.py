@@ -59,7 +59,7 @@ class ContactHelper:
 
     def update_the_field(self, field_name, field_content):
         wd = self.app.wd
-        if not field_content:
+        if field_content:
             wd.find_element_by_name(field_name).click()
             wd.find_element_by_name(field_name).clear()
             wd.find_element_by_name(field_name).send_keys(field_content)
