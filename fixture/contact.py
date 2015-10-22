@@ -71,11 +71,17 @@ class ContactHelper:
             self.navigate_main_page()
             wd.find_element_by_link_text("Додати контакт").click()
 
-    def navigate_edit_contact_page(self):
+    #def navigate_edit_contact_page(self):
+    #    wd = self.app.wd
+    #    if not (len(wd.find_elements_by_name("update")) > 0 and len(wd.find_elements_by_name("middlename")) > 0):
+    #        self.navigate_main_page()
+    #        wd.find_elements_by_css_selector("img[alt=\"Редагувати\"]").click()
+
+    def navigate_edit_contact_page_by_index(self, index):
         wd = self.app.wd
         if not (len(wd.find_elements_by_name("update")) > 0 and len(wd.find_elements_by_name("middlename")) > 0):
             self.navigate_main_page()
-            wd.find_element_by_css_selector("img[alt=\"Редагувати\"]").click()
+            wd.find_elements_by_css_selector("img[alt=\"Редагувати\"]")[index].click()
 
     def navigate_main_page(self):
         wd = self.app.wd
@@ -84,16 +90,28 @@ class ContactHelper:
             #wd.find_element_by_link_text("Головна").click()
 
     def delete_first_contact(self):
+        self.delete_contact_by_index(0)
+
+    def select_contact_by_index(self, index):
         wd = self.app.wd
-        wd.find_element_by_name("selected[]").click()
+        wd.find_elements_by_name("selected[]")[index].click()
+
+    def delete_contact_by_index(self, index):
+        wd = self.app.wd
+        self.navigate_main_page()
+        self.select_contact_by_index(index)
+        #wd.find_elements_by_name("selected[]")[index].click()
         wd.find_element_by_xpath("//div[@id='content']/form[2]/div[2]/input").click()
         wd.switch_to_alert().accept()
         self.navigate_main_page()
         self.contact_cache = None
 
     def edit_first_contact(self, contact):
+        self.edit_contact_by_index(0)
+
+    def edit_contact_by_index(self, index, contact):
         wd = self.app.wd
-        self.navigate_edit_contact_page()
+        self.navigate_edit_contact_page_by_index(index)
         # Filling contact information
         self.update_the_field(field_name="firstname", field_content=contact.firstname)
         self.update_the_field(field_name="middlename", field_content=contact.middlename)
