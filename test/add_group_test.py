@@ -6,7 +6,7 @@ def test_add_group(app):
     for group_parameters in [Group("Group1", "Group1_header", "Group1_footer"), Group("", "", "")]:
         old_groups = app.group.get_group_list()
         app.group.create(group_parameters)
+        assert len(old_groups) + 1 == app.group.count()
         new_groups = app.group.get_group_list()
-        assert len(old_groups) + 1 == len(new_groups)
         old_groups.append(group_parameters)
         assert sorted(old_groups, key=Group.id_or_max) == sorted(new_groups,  key=Group.id_or_max)
