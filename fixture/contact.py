@@ -20,10 +20,10 @@ class ContactHelper:
         self.fill_the_field(field_name="title", field_content=contact.title)
         self.fill_the_field(field_name="company", field_content=contact.company)
         self.fill_the_field(field_name="address", field_content=contact.address)
-        self.fill_the_field(field_name="home", field_content=contact.home)
-        self.fill_the_field(field_name="mobile", field_content=contact.mobile)
-        self.fill_the_field(field_name="work", field_content=contact.work)
-        self.fill_the_field(field_name="fax", field_content=contact.fax)
+        self.fill_the_field(field_name="home", field_content=contact.homephone)
+        self.fill_the_field(field_name="mobile", field_content=contact.mobilephone)
+        self.fill_the_field(field_name="work", field_content=contact.workphone)
+        self.fill_the_field(field_name="fax", field_content=contact.faxphone)
         self.fill_the_field(field_name="email", field_content=contact.email)
         self.fill_the_field(field_name="email2", field_content=contact.email2)
         self.fill_the_field(field_name="email3", field_content=contact.email3)
@@ -81,7 +81,16 @@ class ContactHelper:
         wd = self.app.wd
         if not (len(wd.find_elements_by_name("update")) > 0 and len(wd.find_elements_by_name("middlename")) > 0):
             self.navigate_main_page()
-            wd.find_elements_by_css_selector("img[alt=\"Редагувати\"]")[index].click()
+            row = wd.find_elements_by_name("entry")[index]
+            cell = row.find_elements_by_tag_name("td")[7]
+            cell.find_element_by_tag_name("a").click()
+
+    def open_contact_view_by_index(self, index):
+        wd = self.app.wd
+        self.navigate_main_page()
+        row = wd.find_elements_by_name("entry")[index]
+        cell = row.find_elements_by_tag_name("td")[6]
+        cell.find_element_by_tag_name("a").click()
 
     def navigate_main_page(self):
         wd = self.app.wd
@@ -107,7 +116,7 @@ class ContactHelper:
         self.contact_cache = None
 
     def edit_first_contact(self, contact):
-        self.edit_contact_by_index(0)
+        self.edit_contact_by_index(0, contact)
 
     def edit_contact_by_index(self, index, contact):
         wd = self.app.wd
@@ -120,10 +129,10 @@ class ContactHelper:
         self.update_the_field(field_name="title", field_content=contact.title)
         self.update_the_field(field_name="company", field_content=contact.company)
         self.update_the_field(field_name="address", field_content=contact.address)
-        self.update_the_field(field_name="home", field_content=contact.home)
-        self.update_the_field(field_name="mobile", field_content=contact.mobile)
-        self.update_the_field(field_name="work", field_content=contact.work)
-        self.update_the_field(field_name="fax", field_content=contact.fax)
+        self.update_the_field(field_name="home", field_content=contact.homephone)
+        self.update_the_field(field_name="mobile", field_content=contact.mobilephone)
+        self.update_the_field(field_name="work", field_content=contact.workphone)
+        self.update_the_field(field_name="fax", field_content=contact.faxphone)
         self.update_the_field(field_name="email", field_content=contact.email)
         self.update_the_field(field_name="email2", field_content=contact.email2)
         self.update_the_field(field_name="email3", field_content=contact.email3)
@@ -157,5 +166,23 @@ class ContactHelper:
                 firstname = element.find_elements_by_tag_name("td")[2].text
                 lastname = element.find_elements_by_tag_name("td")[1].text
                 id = element.find_element_by_name("selected[]").get_attribute("id")
-                self.contact_cache.append(Contact(firstname=firstname, lastname=lastname, id=id))
+                all_phones = element.find_elements_by_tag_name("td")[5].text.splitlines()
+                print(firstname, lastname, id)
+                print(all_phones)
+                self.contact_cache.append(Contact(firstname=firstname, lastname=lastname, id=id,
+                                                homephone=all_phones[0], mobilephone=all_phones[1],
+                                                workphone=all_phones[2], phone2=all_phones[3]))
         return list(self.contact_cache)
+
+    def get_contact_info_from_edit_page(self, index):
+        wd = self.app.wd
+        self.navigate_edit_contact_page_by_index(index)
+        firstname = wd.find_element_by_name("firstname").get_attribute("value")
+        lastname = wd.find_element_by_name("lastname").get_attribute("value")
+        id = wd.find_element_by_name("id").get_attribute("value")
+        homephone = wd.find_element_by_name("home").get_attribute("value")
+        workphone = wd.find_element_by_name("work").get_attribute("value")
+        mobilephone = wd.find_element_by_name("mobile").get_attribute("value")
+        phone2 = wd.find_element_by_name("phone2").get_attribute("value")
+        return Contact(firstname=firstname, lastname=lastname, id=id, homephone=homephone, workphone=workphone,
+                       mobilephone=mobilephone, phone2=phone2)
