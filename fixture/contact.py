@@ -1,6 +1,7 @@
 from model.contact import Contact
 # -*- coding: utf-8 -*-
 import random
+import re
 __author__ = 'Pysarev'
 
 
@@ -167,8 +168,8 @@ class ContactHelper:
                 lastname = element.find_elements_by_tag_name("td")[1].text
                 id = element.find_element_by_name("selected[]").get_attribute("id")
                 all_phones = element.find_elements_by_tag_name("td")[5].text.splitlines()
-                print(firstname, lastname, id)
-                print(all_phones)
+                #print(firstname, lastname, id)
+                #print(all_phones)
                 self.contact_cache.append(Contact(firstname=firstname, lastname=lastname, id=id,
                                                 homephone=all_phones[0], mobilephone=all_phones[1],
                                                 workphone=all_phones[2], phone2=all_phones[3]))
@@ -185,4 +186,15 @@ class ContactHelper:
         mobilephone = wd.find_element_by_name("mobile").get_attribute("value")
         phone2 = wd.find_element_by_name("phone2").get_attribute("value")
         return Contact(firstname=firstname, lastname=lastname, id=id, homephone=homephone, workphone=workphone,
+                       mobilephone=mobilephone, phone2=phone2)
+
+    def get_contact_from_view_page(self, index):
+        wd = self.app.wd
+        self.open_contact_view_by_index(index)
+        text = wd.find_element_by_id("content").text
+        homephone = re.search("Домашній телефон: (.*)", text).group(1)
+        workphone = re.search("Робочий телефон: (.*)", text).group(1)
+        mobilephone = re.search("Мобільний телефон: (.*)", text).group(1)
+        phone2 = re.search("P: (.*)", text).group(1)
+        return Contact(homephone=homephone, workphone=workphone,
                        mobilephone=mobilephone, phone2=phone2)
