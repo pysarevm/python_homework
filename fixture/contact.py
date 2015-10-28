@@ -2,6 +2,8 @@ from model.contact import Contact
 # -*- coding: utf-8 -*-
 import random
 import re
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support.expected_conditions import alert_is_present
 __author__ = 'Pysarev'
 
 
@@ -112,6 +114,7 @@ class ContactHelper:
         self.select_contact_by_index(index)
         #wd.find_elements_by_name("selected[]")[index].click()
         wd.find_element_by_xpath("//div[@id='content']/form[2]/div[2]/input").click()
+        WebDriverWait(wd, 5).until(alert_is_present())
         wd.switch_to_alert().accept()
         self.navigate_main_page()
         self.contact_cache = None

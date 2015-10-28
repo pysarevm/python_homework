@@ -47,9 +47,6 @@ testdata = [Contact(firstname="", lastname="")] + [Contact(firstname=random_stri
 
 @pytest.mark.parametrize("contact_parameters", testdata, ids=[repr(x) for x in testdata])
 def test_add_contact(app, contact_parameters):
-   # contact1 = Contact("Rodion", "Mykolayovych", "Pysarev", "NA", "engineer", "Buran", "city. street, house",
-   #                    "0577778881", "0679876543", "", "", "mail@yandex.ua", "", "", "www.google.com",
-   #                    14, 6, "1982", 1, 1, "", "", "1234567890", "", None)
     old_contacts = app.contact.get_contact_list()
     app.contact.create(contact_parameters)
     assert len(old_contacts) + 1 == app.contact.count()
