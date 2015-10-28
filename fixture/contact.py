@@ -39,7 +39,7 @@ class ContactHelper:
         self.fill_the_field(field_name="phone2", field_content=contact.phone2)
         self.fill_the_field(field_name="notes", field_content=contact.notes)
         # Submit contact
-        wd.find_element_by_xpath("//div[@id='content']/form/input[21]").click()
+        wd.find_element_by_name("submit").click()
         self.contact_cache = None
 
     def select_from_dropbox(self, box_number, choice_number):

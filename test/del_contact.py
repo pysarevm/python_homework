@@ -13,3 +13,6 @@ def test_del_some_contact(app):
     new_contacts = app.contact.get_contact_list()
     old_contacts[index:index+1] = []
     assert old_contacts == new_contacts
+
+
+
