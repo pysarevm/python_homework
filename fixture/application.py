@@ -1,14 +1,22 @@
 # -*- coding: utf-8 -*-
-from selenium.webdriver.firefox.webdriver import WebDriver
+from selenium import webdriver
 from fixture.initializer import HelperInitializer
 __author__ = 'Pysarev'
 
 
 class Application:
-    def __init__(self):
-        self.wd = WebDriver()
+    def __init__(self, browser, base_url="http://localhost/addressbook/"):
+        if browser == "firefox":
+            self.wd = webdriver.Firefox()
+        elif browser == "chrome":
+            self.wd = webdriver.Chrome()
+        elif browser == "ie":
+            self.wd = webdriver.Ie()
+        else:
+            raise ValueError ("Unrecognized browser %s" % (browser))
         initializer = HelperInitializer(self)
         initializer.initialize_helper()
+        self.base_url = base_url
 
     def is_valid(self):
         try:
@@ -19,7 +27,7 @@ class Application:
 
     def open_home_page(self):
         wd = self.wd
-        wd.get("http://localhost/addressbook/")
+        wd.get(self.base_url)
 
     def destroy(self):
         self.wd.quit()

@@ -166,10 +166,12 @@ class ContactHelper:
             for element in wd.find_elements_by_xpath("//tr[@name='entry']"):
                 firstname = element.find_elements_by_tag_name("td")[2].text
                 lastname = element.find_elements_by_tag_name("td")[1].text
+                address = element.find_elements_by_tag_name("td")[3].text
+                emails = element.find_elements_by_tag_name("td")[4].text
                 id = element.find_element_by_name("selected[]").get_attribute("id")
                 all_phones = element.find_elements_by_tag_name("td")[5].text
-                self.contact_cache.append(Contact(firstname=firstname, lastname=lastname, id=id,
-                                                  all_phones_from_home_page = all_phones))
+                self.contact_cache.append(Contact(firstname=firstname, lastname=lastname, address=address, all_emails=emails,
+                                                  id=id, all_phones_from_home_page=all_phones))
         return list(self.contact_cache)
 
     def get_contact_info_from_edit_page(self, index):
@@ -182,8 +184,12 @@ class ContactHelper:
         workphone = wd.find_element_by_name("work").get_attribute("value")
         mobilephone = wd.find_element_by_name("mobile").get_attribute("value")
         phone2 = wd.find_element_by_name("phone2").get_attribute("value")
+        address = wd.find_element_by_name("address").get_attribute("value")
+        email = wd.find_element_by_name("email").get_attribute("value")
+        email2 = wd.find_element_by_name("email2").get_attribute("value")
+        email3 = wd.find_element_by_name("email3").get_attribute("value")
         return Contact(firstname=firstname, lastname=lastname, id=id, homephone=homephone, workphone=workphone,
-                       mobilephone=mobilephone, phone2=phone2)
+                       mobilephone=mobilephone, phone2=phone2, email=email, email2=email2,email3=email3, address=address)
 
     #def get_contact_from_view_page(self, index):
     #    wd = self.app.wd
@@ -195,3 +201,19 @@ class ContactHelper:
     #    phone2 = re.search("P: (.*)", text).group(1)
     #    return Contact(homephone=homephone, workphone=workphone,
     #                   mobilephone=mobilephone, phone2=phone2)
+
+    def clear(self, s):
+        return re.sub("[() -]", "", s)
+
+
+    def merge_phones_like_on_home_page(self, contact):
+        return "\n".join(filter(lambda x: x != "",
+                                map(lambda x: self.clear(x),
+                                    filter(lambda x: x is not None,
+                                           [contact.homephone, contact.mobilephone, contact.workphone, contact.phone2]))))
+
+
+    def merge_emails_like_on_home_page(self, contact):
+        return "\n".join(filter(lambda x: x != "",
+                                filter(lambda x: x is not None,
+                                           [contact.email, contact.email2, contact.email3])))
