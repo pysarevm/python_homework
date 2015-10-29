@@ -19,7 +19,8 @@ def random_email(prefix="", maxlen=0):
     return prefix + "".join([random.choice(symbols) for i in range (random.randrange(maxlen/2))])+ "@" +\
            "".join([random.choice(symbols) for i in range (random.randrange(maxlen/2))])
 
-testdata = [Contact(firstname="", lastname="")] + [Contact(firstname=random_string(maxlen=12),
+testdata = [Contact(firstname="", lastname="")]
+"""+ [Contact(firstname=random_string(maxlen=12),
             middlename=random_string(maxlen=18),
             lastname=random_string(maxlen=20),
             nickname=random_string(maxlen=20),
@@ -42,7 +43,7 @@ testdata = [Contact(firstname="", lastname="")] + [Contact(firstname=random_stri
             ayear=[random.randint(0,9) for i in range (0,4)],
             address2=random_string(maxlen=40),
             phone2=random_phone(maxlen=20),
-            notes=random_string(maxlen=200)) for i in range(3)]
+            notes=random_string(maxlen=200)) for i in range(3)]"""
 
 
 @pytest.mark.parametrize("contact_parameters", testdata, ids=[repr(x) for x in testdata])
