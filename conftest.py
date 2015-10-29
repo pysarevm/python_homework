@@ -13,9 +13,12 @@ def app(request):
     global target
     browser = request.config.getoption("--browser")
     if target is None:
-        config_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), request.config.getoption("--target"))
+        if request.config.getoption("--target_path") != "":
+            config_file = request.config.getoption("--target_path")
+        else:
+            config_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), request.config.getoption("--target"))
         with open(config_file) as f:
-            target=json.load(f)
+            target = json.load(f)
     if fixture is None or not fixture.is_valid():
         fixture = Application(browser=browser, base_url=target["baseUrl"])
     fixture.session.ensure_login(username=target["username"], password=target["password"])
@@ -33,3 +36,4 @@ def stop(request):
 def pytest_addoption(parser):
     parser.addoption("--browser", action="store", default="firefox")
     parser.addoption("--target", action="store", default="target.json")
+    parser.addoption("--target_path", action="store", default="")
