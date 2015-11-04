@@ -1,0 +1,176 @@
+[
+  {
+    "homepage": null,
+    "byear": null,
+    "dropbox3_choise": null,
+    "dropbox4_choise": null,
+    "email2": null,
+    "ayear": null,
+    "middlename": null,
+    "address2": null,
+    "id": null,
+    "workphone": null,
+    "phone2": null,
+    "faxphone": null,
+    "nickname": null,
+    "email3": null,
+    "all_emails": null,
+    "dropbox1_choise": null,
+    "firstname": "",
+    "all_phones_from_home_page": null,
+    "email": null,
+    "mobilephone": null,
+    "py/object": "model.contact.Contact",
+    "dropbox2_choise": null,
+    "lastname": "",
+    "title": null,
+    "company": null,
+    "notes": null,
+    "homephone": null,
+    "address": null
+  },
+  {
+    "homepage": "www.2z %b-#:",
+    "byear": [
+      7,
+      9,
+      9,
+      4
+    ],
+    "dropbox3_choise": {
+      "py/function": "model.contact.get_random_date"
+    },
+    "dropbox4_choise": {
+      "py/function": "model.contact.get_random_month"
+    },
+    "email2": "0e53r[^?#  p(D@uV1 r.{o;qU ",
+    "ayear": [
+      5,
+      7,
+      6,
+      8
+    ],
+    "middlename": "3 ",
+    "address2": "o_@^`SB)vi  A!&26xJnuut:/);g@*vZ ^t :",
+    "id": null,
+    "workphone": "|^9/6",
+    "phone2": "87];(!4043]",
+    "faxphone": "%49=533:36<49_",
+    "nickname": "b]<A0",
+    "email3": "@`fY^!",
+    "all_emails": null,
+    "dropbox1_choise": {
+      "py/function": "model.contact.get_random_date"
+    },
+    "firstname": "89> ",
+    "all_phones_from_home_page": null,
+    "email": "7 \"_@tiiQM=6D",
+    "mobilephone": "?(2&^#5`1_48282",
+    "py/object": "model.contact.Contact",
+    "dropbox2_choise": {
+      "py/function": "model.contact.get_random_month"
+    },
+    "lastname": "1",
+    "title": "P: 83G:N=H ",
+    "company": "M-vU",
+    "notes": "uB ?H-ai8lCl>Z q : -mV%S*HTI\" >NL= NDnA`)jE<$%[0-a/>=V|94W>>FvzW(yJ0n\\b{rRrtT ke}",
+    "homephone": "*2|92?87#>+&983\"58",
+    "address": "g~wQ"
+  },
+  {
+    "homepage": "www.:_y#ufg>2u3v",
+    "byear": [
+      3,
+      2,
+      1,
+      4
+    ],
+    "dropbox3_choise": {
+      "py/function": "model.contact.get_random_date"
+    },
+    "dropbox4_choise": {
+      "py/function": "model.contact.get_random_month"
+    },
+    "email2": "To?@!478<(OB1",
+    "ayear": [
+      0,
+      2,
+      0,
+      4
+    ],
+    "middlename": "un-0D",
+    "address2": "ig/$-c&I/Won>! keXG1Xy7V<",
+    "id": null,
+    "workphone": "?6}]!<@:}.8-]!3",
+    "phone2": "",
+    "faxphone": "4^#3)3_=54\"%:?:",
+    "nickname": " _R\\V@6^r2 CUo",
+    "email3": "W a;@",
+    "all_emails": null,
+    "dropbox1_choise": {
+      "py/function": "model.contact.get_random_date"
+    },
+    "firstname": "L",
+    "all_phones_from_home_page": null,
+    "email": " e@]w7#P] ",
+    "mobilephone": "\\46",
+    "py/object": "model.contact.Contact",
+    "dropbox2_choise": {
+      "py/function": "model.contact.get_random_month"
+    },
+    "lastname": "2",
+    "title": "  X =p  7| *3 izY]",
+    "company": "S?{_Qz6=,",
+    "notes": " ?A~ `%,Nx7&W| Ui&I[T/k(88JEKht~\\/feB  ! XqE$$",
+    "homephone": "",
+    "address": "hPl*XzFR{*br# @[@,NBs\"8"
+  },
+  {
+    "homepage": "www.f7X6L%.{oN",
+    "byear": [
+      8,
+      7,
+      3,
+      7
+    ],
+    "dropbox3_choise": {
+      "py/function": "model.contact.get_random_date"
+    },
+    "dropbox4_choise": {
+      "py/function": "model.contact.get_random_month"
+    },
+    "email2": "C WM/]#W&2@t~QlMS5NR",
+    "ayear": [
+      5,
+      1,
+      3,
+      4
+    ],
+    "middlename": "XQ.BV6U*o=d9o (i",
+    "address2": "5V|C",
+    "id": null,
+    "workphone": "[<\\,:508[52^878",
+    "phone2": "",
+    "faxphone": "7{3#1|!118[",
+    "nickname": "\\qMd[W UAMGX r>#",
+    "email3": "@,R|Z ~u t1l}K",
+    "all_emails": null,
+    "dropbox1_choise": {
+      "py/function": "model.contact.get_random_date"
+    },
+    "firstname": "Uo v >2",
+    "all_phones_from_home_page": null,
+    "email": "@q%;g ",
+    "mobilephone": "&7) 047,-158~7259",
+    "py/object": "model.contact.Contact",
+    "dropbox2_choise": {
+      "py/function": "model.contact.get_random_month"
+    },
+    "lastname": "I!p0MP=yKqCxAs",
+    "title": "^J6 ;_Mh? w\"k+E",
+    "company": "B1Jb",
+    "notes": "E-MO:+I%t_6JC!hZDEC@s&o \\IIX2 W^ 3]= [v5aI|dtM1{BY[&\\ ,fPo.yx;hb(}{  Z age\\dPH%X;0O7Q=qeJv,G9tm   p,xk$ {g ?t ZN   Kg3YIDa!mPT ti~SZ(cf}tUP;VIi,fT!N",
+    "homephone": "#2=@7~8",
+    "address": ",BCPMrefI36Zqd gC^1\\e>zgz"
+  }
+]
