@@ -55,10 +55,17 @@ def stop(request):
     request.addfinalizer(fin)
     return fixture
 
+
+@pytest.fixture
+def check_ui(request):
+    return request.config.getoption("--check_ui")
+
+
 def pytest_addoption(parser):
     parser.addoption("--browser", action="store", default="firefox")
     parser.addoption("--target", action="store", default="target.json")
     parser.addoption("--target_path", action="store", default="")
+    parser.addoption("--check_ui", action="store_true", default="")
 
 
 def pytest_generate_tests(metafunc):
