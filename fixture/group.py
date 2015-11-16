@@ -117,3 +117,15 @@ class GroupHelper:
                 id = element.find_element_by_name("selected[]").get_attribute("value")
                 self.group_cache.append(Group(name=text, id=id))
         return list(self.group_cache)
+
+    def delete_groups_with_same_names(self):
+        group_list = self.get_group_list()
+        to_delete_list = []
+        for i in range(0, len(group_list)-1):
+            for j in range(i+1, len(group_list)-1):
+                if group_list[i].name == group_list[j].name:
+                    if group_list[j].id not in to_delete_list:
+                        to_delete_list.append(group_list[j].id)
+        print("test. to_deleteList: ", to_delete_list)
+        for i in to_delete_list:
+            self.delete_group_by_id(i)
