@@ -1,10 +1,11 @@
 from model.contact import Contact
+from model.contact import Contact
 # -*- coding: utf-8 -*-
 import random
 import re
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support.expected_conditions import alert_is_present
-__author__ = 'Pysarev'
+from selenium.webdriver.support.ui import Select
 
 
 class ContactHelper:
@@ -121,7 +122,7 @@ class ContactHelper:
 
     def select_contact_by_id(self, id):
         wd = self.app.wd
-        print("id=",id)
+        #print("id=",id)
         wd.find_element_by_css_selector("input[value='%s']" % id).click()
 
     def delete_contact_by_index(self, index):
@@ -273,8 +274,20 @@ class ContactHelper:
                                     filter(lambda x: x is not None,
                                            [contact.homephone, contact.mobilephone, contact.workphone, contact.phone2]))))
 
-
     def merge_emails_like_on_home_page(self, contact):
         return "\n".join(filter(lambda x: x != "",
                                 filter(lambda x: x is not None,
                                            [contact.email, contact.email2, contact.email3])))
+
+    def select_group_name_from_dropdown(self, group):
+        wd = self.app.wd
+       # dropdown = wd.find_element_by_name("to_group")
+       # group_name = Select(dropdown.select_by_visible_text(group.name)
+        Select(wd.find_element_by_name("to_group")).select_by_visible_text(group.name)
+
+    def add_contact_to_group(self, contact, group):
+        wd = self.app.wd
+        self.navigate_main_page()
+        self.select_contact_by_id(contact.id)
+        self.select_group_name_from_dropdown(group)
+        wd.find_element_by_name("add").click()

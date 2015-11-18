@@ -122,7 +122,7 @@ class GroupHelper:
         group_list = self.get_group_list()
         to_delete_list = []
         for i in range(0, len(group_list)-1):
-            for j in range(i+1, len(group_list)-1):
+            for j in range(i+1, len(group_list)):
                 if group_list[i].name == group_list[j].name:
                     if group_list[j].id not in to_delete_list:
                         to_delete_list.append(group_list[j].id)

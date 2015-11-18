@@ -7,7 +7,7 @@ class Contact:
                  address=None, homephone=None, mobilephone=None, workphone=None, faxphone=None, email=None, email2=None, email3=None,
                  homepage=None, dropbox1_choise=None, dropbox2_choise=None, byear=None, dropbox3_choise=None,
                  dropbox4_choise=None, ayear=None, address2=None, phone2=None, notes=None, id=None, all_phones_from_home_page=None,
-                 all_emails=None):
+                 all_emails=None, group_id=None):
         self.firstname=firstname
         self.middlename=middlename
         self.lastname=lastname
@@ -35,6 +35,7 @@ class Contact:
         self.id=id
         self.all_phones_from_home_page=all_phones_from_home_page
         self.all_emails = all_emails
+        self.group_id=group_id
 
     def get_random_date(self):
         return random.randint(1, 33)

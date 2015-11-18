@@ -4,34 +4,19 @@ import random
 
 
 def test_add_contact_to_group(app, db):
-    #contact_without_group = []
     if len(db.get_group_list()) == 0:
         app.group.create(Group(name="add_contact_to_group_test"))
-    #all_groups = db.get_group_list()
-    #group=random.choice(all_groups)
+    else:
+        app.group.delete_groups_with_same_names()
+    all_groups = db.get_group_list()
+    group=random.choice(all_groups)
+    print("group = ", group)
     if len(db.get_contact_list()) == 0:
         app.contact.create(Contact(firstname="add_contact_to_group_test"))
-    all_groups = db.get_group_list()
-    print("all_groups PRE: ", all_groups)
-    app.group.delete_groups_with_same_names()
-    print("all_groups POST: ", db.get_group_list())
-    #for c in db.get_contact_list:
-    #    for address_in_groups in (db.address_in_groups_list()):
-    #        if c.id != address_in_groups.id:
-
-
-
-
-
-   # contact_parameters = json_contacts
-   # old_contacts = db.get_contact_list()
-   # app.contact.create(contact_parameters)
-   # new_contacts = db.get_contact_list()
-   # assert len(old_contacts) + 1 == len(new_contacts)
-   # old_contacts.append(contact_parameters)
-    #assert sorted(old_contacts, key=Contact.id_or_max) == sorted(new_contacts,  key=Contact.id_or_max)
-    #if check_ui:
-   #     def clean(contact):
-   #         return Contact(id=contact.id, firstname=contact.firstname.strip(), lastname=contact.lastname.strip())
-    #    ui_list = map(clean, new_contacts)
-    #    assert sorted(ui_list, key=Contact.id_or_max) == sorted(app.contact.get_contact_list(), key=Contact.id_or_max)
+    #print ("contacts_from_group: ",db.get_contacts_from_group(group))
+    #print ("contacts not from group: ", db.get_contacts_not_from_group(group))
+    contact=random.choice(db.get_contacts_not_from_group(group))
+    app.contact.add_contact_to_group(contact, group)
+    print("contact: ", contact)
+    print("contacts in group: ", db.get_contacts_from_group(group))
+    assert contact in db.get_contacts_from_group(group)
