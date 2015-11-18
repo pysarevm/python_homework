@@ -285,9 +285,20 @@ class ContactHelper:
        # group_name = Select(dropdown.select_by_visible_text(group.name)
         Select(wd.find_element_by_name("to_group")).select_by_visible_text(group.name)
 
+    def select_group_in_filter(self, group):
+        wd = self.app.wd
+        Select(wd.find_element_by_name("group")).select_by_visible_text(group.name)
+
     def add_contact_to_group(self, contact, group):
         wd = self.app.wd
         self.navigate_main_page()
         self.select_contact_by_id(contact.id)
         self.select_group_name_from_dropdown(group)
         wd.find_element_by_name("add").click()
+
+    def delete_contact_from_group(self, contact, group):
+        wd = self.app.wd
+        self.navigate_main_page()
+        self.select_group_in_filter(group)
+        self.select_contact_by_id(contact.id)
+        wd.find_element_by_name("remove").click()

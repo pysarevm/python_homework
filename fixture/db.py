@@ -41,6 +41,33 @@ class DbFixture:
             cursor.close()
         return list
 
+    def get_contact_by_id(self, contact_id):
+        cursor = self.connection.cursor()
+        try:
+            cursor.execute("select id, firstname, lastname, address, home, mobile, work, phone2, email, email2, email3 "
+                           "from addressbook where deprecated='0000-00-00 00:00:00' and id=%s" % contact_id)
+            for row in cursor:
+                (id, firstname, lastname, address, homephone, mobilephone, workphone, phone2, email, email2, email3) = row
+                contact = Contact(id=str(id), firstname=firstname, lastname=lastname, address=address, homephone=homephone,
+                                    mobilephone=mobilephone, workphone=workphone, phone2=phone2, email=email,
+                                    email2=email2, email3=email3)
+        finally:
+            cursor.close()
+        return contact
+
+    def get_group_by_id(self, group_id):
+        cursor = self.connection.cursor()
+        try:
+            cursor.execute("select group_id, group_name, group_header, group_footer from group_list where group_id=%s" % group_id)
+            for row in cursor:
+                (id, name, header, footer) = row
+                group = Group(id=str(id), name=name, header=header, footer=footer)
+        finally:
+            cursor.close()
+        return group
+
+
+
     def address_in_groups_list(self):
         list=[]
         cursor = self.connection.cursor()
